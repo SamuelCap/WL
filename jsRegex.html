@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <h1 id="header"></h1>
+    <div>
+      <input type="text" id="textBox1"><br>
+    </div>
+    <button onclick="myFunction()">Click me</button>
+    <script>
+      function myFunction() {
+        let message2 = /^[A-z]\d{6}B?$/.test(document.getElementById("textBox1").value);
+        console.log(message2);
+      }
+    </script>
+  </body>
+</html>

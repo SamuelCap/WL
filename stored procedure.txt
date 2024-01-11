@@ -1,0 +1,15 @@
+
+CREATE PROCEDURE AddEmp
+(@FName nvarchar(50), @SName nvarchar(50),@Id nvarchar(36), @EmployeeNumber int, @Position nvarchar(50),  @DoB DATE = NULL, @Department nvarchar(50) = NULL )
+AS
+IF EXISTS(SELECT Firstname FROM Employees WHERE Id = @Id)
+BEGIN
+INSERT INTO Employees
+VALUES (@FName,@SName,@Id,@Position,@DoB,@Department)
+END
+ELSE
+BEGIN
+UPDATE Employees
+SET FirstName = @FName, @SName, @Id, @EmployeeNumber, @Position, IsNull(@DoB,DateOfBirth), IsNull(@Department,Department)
+WHERE Id = @Id
+END

@@ -1,0 +1,29 @@
+﻿@model WebLabsProj.Models.Person[]
+@{
+    ViewData["Title"] = "GetEInMay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="columns small-12">
+    <p>@Model.Length records matched the filter</p>
+</div>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @foreach (Person person in Model)
+     {
+        <div class="row">
+        <p>
+            First Name: @person.FirstName<br />
+            Last name: @person.Surname<br />
+            Date of Birth: @person.DoB
+        </p>
+    
+    
+        </div>
+    
+    }
+    @* A button that will go to the AddEmp view via the HTTPGET version. *@
+    <form method="get" asp-action="AddEmp">
+        <button type="submit">Add new Employee</button>
+    </form>
+</div>
+
